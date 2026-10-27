@@ -1,19 +1,25 @@
 package edu.umg.controlgastos
 
-import edu.umg.programacion2.gastos.datos.GastoRepositoryEnMemoria
+import android.content.Context
+import androidx.room.Room
+import edu.umg.controlgastos.datos.BaseDatos
+import edu.umg.controlgastos.datos.GastoRepositoryRoom
 import edu.umg.programacion2.gastos.servicio.ControlGastos
 
 /**
- * Un SOLO ControlGastos para toda la app.
- *
- * Por que un object y no una propiedad dentro de MainActivity:
- *  - Las dos pantallas (Registro y Resumen) deben ver los MISMOS datos.
- *  - Al girar el telefono Android destruye y recrea la Activity; si el control viviera
- *    dentro de ella, los datos en memoria se perderian.
- *
- * En la semana 4 solo cambia esta linea:
- *   val control = ControlGastos(GastoRepositoryRoom(dao))
+ * Un SOLO ControlGastos para toda la app (compartido por las dos pantallas).
+ * Ahora guarda en la base de datos del telefono (Room/SQLite) en lugar de la memoria.
  */
 object ServicioApp {
-    val control = ControlGastos(GastoRepositoryEnMemoria())
+    lateinit var control: ControlGastos
+        private set
+
+    fun iniciar(context: Context) {
+        val bd = Room.databaseBuilder(
+            context.applicationContext,
+            BaseDatos::class.java,
+            "control_gastos.db"
+        ).build()
+        control = ControlGastos(GastoRepositoryRoom(bd.gastoDao()))
+    }
 }
