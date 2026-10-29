@@ -1,3 +1,13 @@
 <resources>
-    <style name="Theme.ControlGastos" parent="Theme.Material3.DayNight.NoActionBar" />
+    <style name="Theme.ControlGastos" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primario</item>
+        <item name="colorOnPrimary">@color/blanco</item>
+        <item name="colorSurface">@color/tarjeta</item>
+        <item name="colorOnSurface">@color/texto</item>
+        <item name="colorOutline">@color/borde</item>
+        <item name="android:colorBackground">@color/fondo</item>
+        <item name="android:windowBackground">@color/fondo</item>
+        <item name="android:statusBarColor">@color/fondo</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
 </resources>

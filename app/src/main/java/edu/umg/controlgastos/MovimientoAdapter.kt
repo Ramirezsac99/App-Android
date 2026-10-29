@@ -10,7 +10,7 @@ import edu.umg.programacion2.gastos.modelo.Gasto
 import edu.umg.programacion2.gastos.modelo.Tipo
 import edu.umg.programacion2.gastos.servicio.formatearQuetzales
 
-/** Dibuja cada movimiento guardado: categoria, nota, fecha y monto. */
+/** Dibuja cada movimiento guardado como una tarjeta: icono, categoria, nota, fecha y monto. */
 class MovimientoAdapter(
     private val alEliminar: (Gasto) -> Unit
 ) : RecyclerView.Adapter<MovimientoAdapter.Holder>() {
@@ -33,6 +33,7 @@ class MovimientoAdapter(
         val b = holder.binding
         val esGasto = gasto.tipo == Tipo.GASTO
 
+        gasto.categoria.pintarIcono(b.contenedorIcono, b.ivIcono)
         b.tvCategoria.text = gasto.categoria.nombreVisible
         b.tvNota.text = gasto.nota
         b.tvNota.visibility = if (gasto.nota.isBlank()) View.GONE else View.VISIBLE

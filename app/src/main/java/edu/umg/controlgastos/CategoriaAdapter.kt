@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.umg.controlgastos.databinding.ItemCategoriaBinding
 import edu.umg.programacion2.gastos.modelo.Categoria
 
-/** Dibuja cada categoria como un boton de la cuadricula. */
+/** Dibuja cada categoria como una tarjeta blanca con icono y nombre. */
 class CategoriaAdapter(
     private val alTocar: (Categoria) -> Unit
 ) : RecyclerView.Adapter<CategoriaAdapter.Holder>() {
@@ -26,7 +26,9 @@ class CategoriaAdapter(
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val categoria = items[position]
-        holder.binding.btnCategoria.text = categoria.nombreVisible
-        holder.binding.btnCategoria.setOnClickListener { alTocar(categoria) }
+        val b = holder.binding
+        categoria.pintarIcono(b.contenedorIcono, b.ivIcono)
+        b.tvNombre.text = categoria.nombreVisible
+        b.root.setOnClickListener { alTocar(categoria) }
     }
 }

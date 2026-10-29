@@ -1,5 +1,17 @@
 <resources>
-    <color name="rojo">#EF7B7B</color>
-    <color name="verde">#6FCF79</color>
-    <color name="azul">#7DB4F5</color>
+    <color name="fondo">#F3F4FA</color>
+    <color name="tarjeta">#FFFFFF</color>
+    <color name="borde">#E6E8F2</color>
+    <color name="lila">#EEF0FF</color>
+    <color name="tecla">#EEF0FF</color>
+    <color name="icono">#5B5BD6</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="texto">#1F2433</color>
+    <color name="texto_suave">#6B7280</color>
+    <color name="etiqueta">#9AA3B5</color>
+    <color name="primario">#6366F1</color>
+    <color name="primario_osc">#4F46E5</color>
+    <color name="rojo">#E5484D</color>
+    <color name="verde">#12A150</color>
+    <color name="azul">#4F46E5</color>
 </resources>
